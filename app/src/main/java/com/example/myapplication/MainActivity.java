@@ -1,4 +1,5 @@
 package com.example.myapplication;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
+    private boolean isMainLayout = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +23,21 @@ public class MainActivity extends AppCompatActivity {
 
         // Set button click listener
         continueButton.setOnClickListener(v -> {
-            // Handle button click, for now, show a simple toast
-            Toast.makeText(MainActivity.this, "Continue button clicked!", Toast.LENGTH_SHORT).show();
+            if (isMainLayout) {
+                // Show a toast message
+                Toast.makeText(MainActivity.this, "Continue button clicked!", Toast.LENGTH_SHORT).show();
+
+                // Switch to the second layout
+
+                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+                startActivity(intent);
+            } else {
+                // Optionally, you can add logic to go back to the main layout if needed
+                setContentView(R.layout.activity_main);
+                isMainLayout = true; // Reset flag to indicate main layout is active again
+            }
+
+
         });
     }
-}
+    }
