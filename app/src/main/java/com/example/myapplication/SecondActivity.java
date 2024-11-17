@@ -1,60 +1,91 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
+import com.google.firebase.auth.FirebaseAuth;
+
+public class SecondActivity extends AppCompatActivity  {
 
     private EditText emailEditText, passwordEditText;
-    private Button loginButton;
+    private Button btnLogin;
     private TextView registerLink;
+    private ProgressBar progressBar;
 
+    private FirebaseAuth mAuth;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        // Initialize Firebase components
+        mAuth = FirebaseAuth.getInstance();
+
         // Initialize views
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
-        loginButton = findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnLogin);
         registerLink = findViewById(R.id.registerLink);
+        progressBar = findViewById(R.id.progressBar);
 
-        // Set login button click listener
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = emailEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-
-                // Simple validation
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(SecondActivity.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Proceed with login (Add your authentication logic here)
-                    Toast.makeText(SecondActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                    // You might want to navigate to the main activity or another appropriate screen here
-                }
-            }
+        // Set click listeners
+        btnLogin.setOnClickListener(v -> userLogin());
+        registerLink.setOnClickListener(v -> {
+            Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+            startActivity(intent);
         });
 
-        // Set click listener for the register link
-        registerLink.setOnClickListener(this);
 
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.registerLink) {
-            // Launch the ThirdActivity
-            Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
-            startActivity(intent);
+
+
+    private void userLogin() {
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+
+        // Validate user input (optional)
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        // Sign in with Firebase Authentication
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Login successful
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(SecondActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
+                        // Navigate to the main activity or any other screen after successful login
+                        // (replace with your desired activity)
+                        Intent intent = new Intent(SecondActivity.this, FouthActivity.class);
+                        startActivity(intent);
+                    } else {
+                        // Login failed
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(SecondActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

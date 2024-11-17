@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1004541213559",
+    "firebase_url": "https://luxvista-resort-default-rtdb.firebaseio.com",
+    "project_id": "luxvista-resort",
+    "storage_bucket": "luxvista-resort.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004541213559:android:71c4ca276b508665a4ff72",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5O9nN1BVdsH6xcJTiXuVCnoTmlepU4wg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
