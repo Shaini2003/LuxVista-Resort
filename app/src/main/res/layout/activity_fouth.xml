@@ -64,7 +64,8 @@
             android:text="Nearest"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
-
+        <Space
+            android:layout_width="16dp"  android:layout_height="wrap_content" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,7 +73,8 @@
             android:text="popular"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
-
+        <Space
+            android:layout_width="16dp"  android:layout_height="wrap_content" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,7 +97,8 @@
             android:text="Near From You"
             android:textSize="20sp"
             android:textStyle="bold"/>
-
+        <Space
+            android:layout_width="16dp"  android:layout_height="wrap_content" />
         <Button
             android:id="@+id/see_all"
             android:layout_width="100dp"
@@ -116,6 +119,7 @@
 
 
         <ImageView
+            android:id="@+id/hotelImg"
             android:layout_width="395dp"
             android:layout_height="217dp"
             android:layout_marginBottom="8dp"

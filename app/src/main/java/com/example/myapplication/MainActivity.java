@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         continueButton.setOnClickListener(v -> {
             if (isMainLayout) {
                 // Show a toast message
-                Toast.makeText(MainActivity.this, "See All button clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Continue button clicked!", Toast.LENGTH_SHORT).show();
 
                 // Switch to the second layout
 

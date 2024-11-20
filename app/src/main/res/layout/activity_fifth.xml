@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/sea_view_image"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="369dp"
+            android:layout_height="190dp"
             android:layout_margin="10dp"
             android:src="@drawable/a7" />
 
@@ -44,8 +44,8 @@
 
         <ImageView
             android:id="@+id/family_luxury_image"
-            android:layout_width="376dp"
-            android:layout_height="199dp"
+            android:layout_width="363dp"
+            android:layout_height="198dp"
             android:layout_margin="10dp"
             android:src="@drawable/a9" />
 
@@ -74,9 +74,10 @@
 
         <ImageView
             android:id="@+id/honeymoon_luxury_image"
-            android:layout_width="363dp"
-            android:layout_height="178dp"
+            android:layout_width="367dp"
+            android:layout_height="177dp"
             android:layout_margin="10dp"
+            android:layout_marginLeft="80dp"
             android:src="@drawable/a10" />
 
         <TextView

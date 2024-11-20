@@ -6,14 +6,14 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EightActivity extends AppCompatActivity {
+public class NinethActivity extends AppCompatActivity {
 
     private Button bookNowButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eighth);
+        setContentView(R.layout.activity_nineth);
 
 
         bookNowButton = findViewById(R.id.bookNowButton);
@@ -22,7 +22,7 @@ public class EightActivity extends AppCompatActivity {
 
         bookNowButton.setOnClickListener(v -> {
             // When "Book Now" button is clicked, start FifthActivity
-            Intent intent = new Intent(EightActivity.this, TenActivity.class);
+            Intent intent = new Intent(NinethActivity.this, TenActivity.class);
             startActivity(intent);
         });
     }

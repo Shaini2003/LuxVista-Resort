@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +31,7 @@ public class FouthActivity extends AppCompatActivity {
 
                 // Show a toast message
 
-                Toast.makeText(FouthActivity.this, "Continue button clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FouthActivity.this, "See All button clicked!", Toast.LENGTH_SHORT).show();
 
 
 
@@ -57,12 +58,12 @@ public class FouthActivity extends AppCompatActivity {
 
 
         });
-        ImageView userImageView = findViewById(R.id.user);
+        ImageView hotelImageView = findViewById(R.id.hotelImg);
 
-        userImageView.setOnClickListener(new View.OnClickListener() {
+        hotelImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FouthActivity.this, FifthActivity.class);
+                Intent intent = new Intent(FouthActivity.this, NinethActivity.class);
                 startActivity(intent);
 
             }
