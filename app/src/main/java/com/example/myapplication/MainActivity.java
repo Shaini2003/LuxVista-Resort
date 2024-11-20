@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
         continueButton.setOnClickListener(v -> {
             if (isMainLayout) {
                 // Show a toast message
-                Toast.makeText(MainActivity.this, "Continue button clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "See All button clicked!", Toast.LENGTH_SHORT).show();
 
                 // Switch to the second layout
 
-                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
             } else {
                 // Optionally, you can add logic to go back to the main layout if needed
