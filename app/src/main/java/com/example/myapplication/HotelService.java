@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.graphics.drawable.Drawable;
+
 public class HotelService {
     private String name;
 
@@ -10,6 +12,7 @@ public class HotelService {
         this.name = name;
     }
 
+
     public String getName() {
         return name;
     }
@@ -17,4 +20,6 @@ public class HotelService {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }

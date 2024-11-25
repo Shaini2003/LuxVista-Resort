@@ -68,5 +68,15 @@ public class FouthActivity extends AppCompatActivity {
 
             }
         });
+        ImageView userImageView = findViewById(R.id.user);
+
+        userImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FouthActivity.this, SecondActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }

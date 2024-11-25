@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,13 +41,22 @@ public class SecondActivity extends AppCompatActivity  {
         registerLink = findViewById(R.id.registerLink);
         progressBar = findViewById(R.id.progressBar);
 
+
         // Set click listeners
         btnLogin.setOnClickListener(v -> userLogin());
         registerLink.setOnClickListener(v -> {
             Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
             startActivity(intent);
         });
+        Button adminLogin = findViewById(R.id.btnadminLogin);
+        adminLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SecondActivity.this, TwelveActivity.class);
+                startActivity(intent);
 
+            }
+        });
 
     }
 
@@ -87,5 +97,8 @@ public class SecondActivity extends AppCompatActivity  {
                         Toast.makeText(SecondActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
+
     }
 }

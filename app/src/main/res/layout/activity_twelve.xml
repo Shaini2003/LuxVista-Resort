@@ -53,15 +53,7 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
-        <!-- Forgot Password -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:paddingTop="8dp"
-            android:text="Forgot password?"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark" />
+
 
         <!-- Login Button -->
         <Button
@@ -75,28 +67,8 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/btnadminLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
-            android:backgroundTint="@color/black"
-            android:text="Admin Login"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF" />
 
-        <!-- Register Link -->
-        <TextView
-            android:id="@+id/registerLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="16dp"
-            android:text="New user? Create an account"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_blue_dark" />
+
 
         <ProgressBar
             android:id="@+id/progressBar"

@@ -1,10 +1,14 @@
 package com.example.myapplication;
 
+import static java.lang.System.load;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.time.Instant;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -29,6 +33,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HotelService service = servicesList.get(position);
         holder.serviceName.setText(service.getName());
+
     }
 
     @Override
