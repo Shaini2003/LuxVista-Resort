@@ -7,11 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-
-
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FouthActivity extends AppCompatActivity {
@@ -24,6 +19,7 @@ public class FouthActivity extends AppCompatActivity {
 
         // Initialize button
         Button seeAllButton = findViewById(R.id.see_all);
+
 // Initialize Firebase Authentication
         seeAllButton.setOnClickListener(v -> {
 
@@ -33,11 +29,7 @@ public class FouthActivity extends AppCompatActivity {
 
                 Toast.makeText(FouthActivity.this, "See All button clicked!", Toast.LENGTH_SHORT).show();
 
-
-
                 // Switch to the second layout
-
-
 
                 Intent intent = new Intent(FouthActivity.this, FifthActivity.class);
 
@@ -52,10 +44,6 @@ public class FouthActivity extends AppCompatActivity {
                 isMainLayout = true; // Reset flag to indicate main layout is active again
 
             }
-
-
-
-
 
         });
         ImageView hotelImageView = findViewById(R.id.hotelImg);
@@ -74,6 +62,26 @@ public class FouthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FouthActivity.this, SecondActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        Button roombutton = findViewById(R.id.room);
+        roombutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FouthActivity.this, ThirteenActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        Button servicebutton = findViewById(R.id.Services);
+        servicebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FouthActivity.this, FourteenActivity.class);
                 startActivity(intent);
 
             }

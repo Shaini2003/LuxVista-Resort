@@ -29,33 +29,7 @@ public class EleventhActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eleven);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Services");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Rename the method here (e.g., processData)
-                processData(dataSnapshot);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("FirebaseData", "Failed to read services.", error.toException());
-            }
-
-            private void processData(DataSnapshot dataSnapshot) {
-                // Your logic to handle the retrieved data
-                List<HotelService> servicesList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    HotelService service = snapshot.getValue(HotelService.class);
-                    servicesList.add(service);
-                }
-
-                // Update your adapter with the servicesList
-                // ...
-            }
-        });
     }
 }
