@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/h2">
+    android:background="@drawable/image5">
 
     <!-- Logo Section -->
     <LinearLayout
@@ -21,7 +21,7 @@
 
     <LinearLayout
         android:layout_width="381dp"
-        android:layout_height="384dp"
+        android:layout_height="280dp"
         android:layout_margin="16dp"
         android:background="#FFFFFF"
         android:backgroundTint="@color/grey"
@@ -32,49 +32,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Admin Login\n"
-            android:textSize="30sp"
+            android:text="Are you sure want to do this?"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
-
-        <!-- Email Input -->
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
-
-        <!-- Password Input -->
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword" />
 
 
 
         <!-- Login Button -->
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:textSize="18sp"
-            android:backgroundTint="@color/black"
-            android:text="Login"
+            android:backgroundTint="#00A0FF"
+            android:text="Yes"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:backgroundTint="#d63031"
+            android:text="No"
             android:textStyle="bold"
             android:textColor="#FFFFFF" />
 
 
-
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
 
 
     </LinearLayout>

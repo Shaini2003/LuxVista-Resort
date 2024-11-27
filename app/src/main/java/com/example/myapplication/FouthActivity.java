@@ -61,7 +61,7 @@ public class FouthActivity extends AppCompatActivity {
         userImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FouthActivity.this, SecondActivity.class);
+                Intent intent = new Intent(FouthActivity.this, UserActivity.class);
                 startActivity(intent);
 
             }
@@ -82,6 +82,15 @@ public class FouthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FouthActivity.this, FourteenActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        Button offerbutton = findViewById(R.id.Offers);
+        offerbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FouthActivity.this, FifteenActivity.class);
                 startActivity(intent);
 
             }

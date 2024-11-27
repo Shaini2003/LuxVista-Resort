@@ -75,17 +75,17 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/btnadminLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
-            android:backgroundTint="@color/black"
-            android:text="Admin Login"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF" />
 
+        <TextView
+            android:id="@+id/btnadminLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="16dp"
+            android:text="Admin Login"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark" />
         <!-- Register Link -->
         <TextView
             android:id="@+id/registerLink"

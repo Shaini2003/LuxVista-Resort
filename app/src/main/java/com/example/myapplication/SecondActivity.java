@@ -48,11 +48,11 @@ public class SecondActivity extends AppCompatActivity  {
             Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
             startActivity(intent);
         });
-        Button adminLogin = findViewById(R.id.btnadminLogin);
+        TextView adminLogin = findViewById(R.id.btnadminLogin);
         adminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SecondActivity.this, ThirteenActivity.class);
+                Intent intent = new Intent(SecondActivity.this, TwelveActivity.class);
                 startActivity(intent);
 
             }

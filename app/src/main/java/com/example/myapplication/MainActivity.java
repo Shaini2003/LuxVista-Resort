@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Switch to the second layout
 
-                Intent intent = new Intent(MainActivity.this, FouthActivity.class);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
             } else {
                 // Optionally, you can add logic to go back to the main layout if needed

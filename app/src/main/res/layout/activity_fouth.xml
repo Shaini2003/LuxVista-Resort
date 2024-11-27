@@ -66,7 +66,7 @@
         <Space
             android:layout_width="16dp"  android:layout_height="wrap_content" />
         <Button
-            android:id="@+id/Promotions"
+            android:id="@+id/Offers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#00A0FF"
