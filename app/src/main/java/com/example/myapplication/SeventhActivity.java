@@ -23,7 +23,7 @@ public class SeventhActivity extends AppCompatActivity {
 
         bookNowButton.setOnClickListener(v -> {
             // When "Book Now" button is clicked, start FifthActivity
-            Intent intent = new Intent(SeventhActivity.this, TenActivity.class);
+            Intent intent = new Intent(SeventhActivity.this, ConfirmationActivity.class);
             startActivity(intent);
         });
     }

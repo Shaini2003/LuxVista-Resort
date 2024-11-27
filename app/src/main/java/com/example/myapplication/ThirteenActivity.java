@@ -1,12 +1,14 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,7 +42,7 @@ public class ThirteenActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         roomList = new ArrayList<>();
-        roomAdapter = new RoomAdapter(roomList);
+        RoomAdapter roomAdapter = new RoomAdapter(roomList, this); // Pass "this" as the context
         recyclerView.setAdapter(roomAdapter);
 
         DatabaseReference roomsRef = FirebaseDatabase.getInstance().getReference("Rooms");

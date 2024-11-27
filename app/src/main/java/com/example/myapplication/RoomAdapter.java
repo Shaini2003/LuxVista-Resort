@@ -1,8 +1,11 @@
 package com.example.myapplication;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,15 +19,18 @@ import java.util.List;
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
 
     private List<Room> roomList;
+    private Context context;
 
-    public RoomAdapter(List<Room> roomList) {
+    public RoomAdapter(List<Room> roomList, Context context) {
         this.roomList = roomList;
+        this.context = context; // Assign the received context
     }
+
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup
-            parent, int viewType) {
+                                                 parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
         return new ViewHolder(view);
     }
@@ -37,6 +43,16 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
         holder.roomPrice.setText(room.Price);
         holder.roomDetails.setText(room.details);
         Glide.with(holder.itemView.getContext()).load(room.image).into(holder.roomImage);
+
+        holder.bookNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle book now button click
+                Intent intent = new Intent(context, TenActivity.class); // Replace with your next interface class name
+
+                context.startActivity(intent);
+            }
+        });
     }
 
 
@@ -47,15 +63,16 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView
-        roomName, roomPrice, roomDetails;
+                roomName, roomPrice, roomDetails;
         ImageView roomImage;
-
+        Button bookNowButton;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             roomName = itemView.findViewById(R.id.room_name);
             roomPrice = itemView.findViewById(R.id.room_price);
             roomDetails = itemView.findViewById(R.id.room_details);
             roomImage = itemView.findViewById(R.id.room_image);
+            bookNowButton = itemView.findViewById(R.id.BookButton);
         }
     }
 }

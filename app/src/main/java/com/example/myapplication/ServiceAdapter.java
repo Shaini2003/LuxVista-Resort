@@ -20,7 +20,10 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     public ServiceAdapter(List<Service> serviceList) {
         this.serviceList = serviceList;
     }
-
+    public void updateData(List<Service> newServiceList) {
+        this.serviceList = newServiceList;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup
