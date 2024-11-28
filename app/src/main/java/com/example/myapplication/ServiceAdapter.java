@@ -1,8 +1,11 @@
 package com.example.myapplication;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,9 +19,11 @@ import java.util.List;
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHolder> {
 
     private List<Service> serviceList;
+    private Context context;
 
-    public ServiceAdapter(List<Service> serviceList) {
+    public ServiceAdapter(List<Service> serviceList, Context context) {
         this.serviceList = serviceList;
+        this.context = context;
     }
     public void updateData(List<Service> newServiceList) {
         this.serviceList = newServiceList;
@@ -40,6 +45,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         holder.servicePrice.setText(service.Price);
         holder.serviceDetails.setText(service.details);
         Glide.with(holder.itemView.getContext()).load(service.image).into(holder.serviceImage);
+
+        holder.bookNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle book now button click
+                Intent intent = new Intent(context, TenActivity.class); // Replace with your next interface class name
+
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -51,6 +66,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         TextView
                 serviceName, servicePrice, serviceDetails;
         ImageView serviceImage;
+        Button bookNowButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +74,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
             servicePrice = itemView.findViewById(R.id.service_price);
             serviceDetails = itemView.findViewById(R.id.service_details);
             serviceImage = itemView.findViewById(R.id.service_image);
+            bookNowButton = itemView.findViewById(R.id.BookButton);
         }
     }
 }

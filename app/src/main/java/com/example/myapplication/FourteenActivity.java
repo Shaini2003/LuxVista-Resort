@@ -33,7 +33,8 @@ public class FourteenActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         serviceList = new ArrayList<>();
-        serviceAdapter = new ServiceAdapter(serviceList);
+        serviceAdapter = new ServiceAdapter(serviceList, this);
+
         recyclerView.setAdapter(serviceAdapter);
 
         searchView = findViewById(R.id.search_view);

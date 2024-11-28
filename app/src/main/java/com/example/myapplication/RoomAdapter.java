@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -25,7 +26,11 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
         this.roomList = roomList;
         this.context = context; // Assign the received context
     }
-
+    @SuppressLint("NotifyDataSetChanged")
+    public void updateData(List<Room> newRoomList) {
+        this. roomList = newRoomList;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override

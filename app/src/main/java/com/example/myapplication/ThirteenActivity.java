@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,10 +32,9 @@ public class ThirteenActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RoomAdapter roomAdapter;
     private List<Room> roomList;
-    private Button searchButton;
-    private EditText searchBar;
+    private SearchView searchView;
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +44,24 @@ public class ThirteenActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         roomList = new ArrayList<>();
-        RoomAdapter roomAdapter = new RoomAdapter(roomList, this); // Pass "this" as the context
+        roomAdapter = new RoomAdapter(roomList, this);
         recyclerView.setAdapter(roomAdapter);
+
+        searchView = findViewById(R.id.search_view);
+        searchView.setQueryHint("Search Rooms");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false; // Handle submit if needed, otherwise return false
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterRooms(newText);
+                return false;
+            }
+        });
 
         DatabaseReference roomsRef = FirebaseDatabase.getInstance().getReference("Rooms");
 
@@ -55,20 +73,30 @@ public class ThirteenActivity extends AppCompatActivity {
                     Room room = roomSnapshot.getValue(Room.class);
                     if (room != null) {
                         roomList.add(room);
-                    } else {
-                        Toast.makeText(ThirteenActivity.this, "Error fetching room data", Toast.LENGTH_SHORT).show();
                     }
                 }
-                roomAdapter.notifyDataSetChanged();
+                roomAdapter.updateData(roomList); // Update with complete list initially
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(ThirteenActivity.this, "Error fetching room data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ThirteenActivity.this, "Error fetching room data: " + databaseError.getMessage(), LENGTH_SHORT).show();
             }
         });
 
     }
 
-
+    private void filterRooms(String newText) {
+        List<Room> filteredList = new ArrayList<>();
+        if (newText.isEmpty()) {
+            filteredList.addAll(roomList); // Add all rooms back if search text is empty
+        } else {
+            for (Room room : roomList) {
+                if (room.name.toLowerCase().contains(newText.toLowerCase())) {
+                    filteredList.add(room);
+                }
+            }
+        }
+        roomAdapter.updateData(filteredList);
     }
+}

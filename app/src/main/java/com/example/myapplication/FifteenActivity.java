@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class FifteenActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private OffersAdapter offersAdapter;
     private List<Offers> offersList;
+    private SearchView searchView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,8 +35,23 @@ public class FifteenActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         offersList = new ArrayList<>();
-        offersAdapter = new OffersAdapter(offersList);
+        offersAdapter = new OffersAdapter(offersList, this);
         recyclerView.setAdapter(offersAdapter);
+        searchView = findViewById(R.id.search_view);
+        searchView.setQueryHint("Search Offers");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false; // Handle submit if needed, otherwise return false
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterRooms(newText);
+                return false;
+            }
+        });
 
         DatabaseReference offersRef = FirebaseDatabase.getInstance().getReference("Offers");
 
@@ -58,5 +75,18 @@ public class FifteenActivity extends AppCompatActivity {
                 Toast.makeText(FifteenActivity.this, "Error fetching room data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void filterRooms(String newText) {
+        List<Offers> filteredList = new ArrayList<>();
+        if (newText.isEmpty()) {
+            filteredList.addAll(offersList); // Add all rooms back if search text is empty
+        } else {
+            for (Offers offer : offersList) {
+                if (offer.name.toLowerCase().contains(newText.toLowerCase())) {
+                    filteredList.add(offer);
+                }
+            }
+        }
+        offersAdapter.updateData(filteredList);
     }
 }

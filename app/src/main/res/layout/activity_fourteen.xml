@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
-        android:queryHint="Search Services" />
+        android:queryHint="Search Rooms" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/service_list"
