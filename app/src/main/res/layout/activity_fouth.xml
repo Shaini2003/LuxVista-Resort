@@ -188,6 +188,7 @@
             android:src="@drawable/calendar" />
 
         <ImageView
+            android:id="@+id/sms"
             android:layout_width="61dp"
             android:layout_height="43dp"
             android:layout_marginLeft="100dp"

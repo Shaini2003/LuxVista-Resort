@@ -66,6 +66,16 @@ public class FouthActivity extends AppCompatActivity {
 
             }
         });
+        ImageView smsImageView = findViewById(R.id.sms);
+
+        smsImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FouthActivity.this, SixteenActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
         Button roombutton = findViewById(R.id.room);
