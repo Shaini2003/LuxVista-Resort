@@ -183,6 +183,7 @@
         android:orientation="horizontal"
         android:padding="6dp">
         <ImageView
+            android:id="@+id/calender"
             android:layout_width="52dp"
             android:layout_height="37dp"
             android:src="@drawable/calendar" />

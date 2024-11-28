@@ -76,6 +76,16 @@ public class FouthActivity extends AppCompatActivity {
 
             }
         });
+        ImageView calenderImageView = findViewById(R.id.calender);
+
+        calenderImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FouthActivity.this, EighteenteenActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
         Button roombutton = findViewById(R.id.room);
