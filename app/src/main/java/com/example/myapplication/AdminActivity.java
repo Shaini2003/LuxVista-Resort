@@ -15,6 +15,7 @@ public class AdminActivity extends AppCompatActivity {
     private CardView cardView4;
     private CardView cardView5;
     private CardView cardView6;
+    private TextView admin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +79,15 @@ public class AdminActivity extends AppCompatActivity {
                 // Navigate to the second activity
                 Intent intent = new Intent(AdminActivity.this, Activity6.class);
                 startActivity(intent);
+            }
+        });
+        admin = findViewById(R.id.luxvista);
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this, FouthActivity.class);
+                startActivity(intent);
+
             }
         });
     }
