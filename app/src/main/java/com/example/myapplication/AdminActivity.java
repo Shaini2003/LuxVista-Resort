@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,8 @@ public class AdminActivity extends AppCompatActivity {
     private CardView cardView4;
     private CardView cardView5;
     private CardView cardView6;
-    private TextView admin;
+    private Button admin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,14 +83,15 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        admin = findViewById(R.id.luxvista);
+        admin = findViewById(R.id.Add);
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminActivity.this, FouthActivity.class);
+                Intent intent = new Intent(AdminActivity.this, AddActivity.class);
                 startActivity(intent);
 
             }
         });
+
     }
 }

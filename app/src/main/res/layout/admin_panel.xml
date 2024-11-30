@@ -232,6 +232,18 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/Add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Services,Rooms,Offers and Promotions"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#00A0FF"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
