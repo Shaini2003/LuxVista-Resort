@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditRoomActivity">
+
+    <EditText
+        android:id="@+id/room_image_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Room image address"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/room_name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Room Name"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/room_price_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Room Price"
+        android:inputType="numberDecimal"
+        android:padding="16dp" />
+
+    <EditText
+        android:id="@+id/room_details_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Room Details"
+        android:padding="16dp" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Changes"
+        android:padding="16dp" />
+
+</LinearLayout>

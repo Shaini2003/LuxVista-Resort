@@ -4,11 +4,6 @@ public class Room {
     public String details;
     public String image;
     public String name;
-
-
-
-
     // Default constructor and getters/setters
 }
-
 
