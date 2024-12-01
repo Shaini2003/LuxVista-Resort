@@ -1,5 +1,5 @@
 package com.example.myapplication;
 
-public class Promotion {
+public class promo {
     public String name;
 }
