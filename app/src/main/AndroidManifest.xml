@@ -349,6 +349,7 @@
             </intent-filter>
         </activity>
 
+
         <service
             android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES"
             android:enabled="false"

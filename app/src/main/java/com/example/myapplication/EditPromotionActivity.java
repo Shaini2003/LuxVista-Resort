@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class EditPromotionActivity extends AppCompatActivity {
 
-    private EditText roomNameEditText;
+    private EditText promotionNameEdit;
     private Button saveButton;
 
 
@@ -27,34 +27,32 @@ public class EditPromotionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_promotion);
 
-        roomNameEditText = findViewById(R.id.promotion_image_edit);
-        saveButton = findViewById(R.id.save_button);
+        promotionNameEdit = findViewById(R.id.promotionNameEdit);
+        saveButton = findViewById(R.id.saveButton);
 
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateRoomDetails();
+                updatePromotionDetails();
             }
         });
     }
 
-    private void updateRoomDetails() {
+    private void updatePromotionDetails() {
 
-        String roomName =  roomNameEditText.getText().toString().trim();
-
-
+        String name =  promotionNameEdit.getText().toString().trim();
 
 
-        if (TextUtils.isEmpty(roomName)) {
+        if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Room Name is required", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Promotions").child(roomName);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Promotions").child(name);
 
         Map<String, Object> updatedValues = new HashMap<>();
-        if (!TextUtils.isEmpty(roomName)) updatedValues.put("name", roomName);
+        if (!TextUtils.isEmpty(name)) updatedValues.put("name", name);
 
 
         databaseReference.updateChildren(updatedValues).addOnCompleteListener(task -> {
@@ -68,7 +66,7 @@ public class EditPromotionActivity extends AppCompatActivity {
     }
 
     private void clearFields() {
-        roomNameEditText.setText("");
+        promotionNameEdit.setText("");
 
     }
 }

@@ -10,7 +10,7 @@
 
     <EditText
         android:layout_marginTop="250sp"
-        android:id="@+id/promotion_image_edit"
+        android:id="@+id/promotionNameEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Activity image address"
@@ -20,7 +20,7 @@
 
 
     <Button
-        android:id="@+id/save_button"
+        android:id="@+id/saveButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save Changes"

@@ -1,6 +1,11 @@
 package com.example.myapplication;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,9 +34,16 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
         this.promotionList = promotionList;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    public void updateData(List<Promotion> promotionList) {
+        this. promotionList = promotionList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup
+                                                 parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_promotion, parent, false);
         return new ViewHolder(view);
     }
@@ -39,14 +51,16 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Promotion promotion = promotionList.get(position);
-        holder.promotionName.setText(promotion.name);
+        holder.roomName.setText(promotion.name);
+
+
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Promotion room = promotionList.get(position);
+                final Promotion promotion = promotionList.get(position);
 
                 // Get a reference to the specific room in the database
-                DatabaseReference roomRef = FirebaseDatabase.getInstance().getReference("Promotions").child(room.name);
+                DatabaseReference roomRef = FirebaseDatabase.getInstance().getReference("Promotions").child(promotion.name);
 
                 // Delete the room from the database
                 roomRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -58,7 +72,7 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
                             notifyItemRemoved(position);
                         } else {
                             // Handle deletion failure (e.g., show error message)
-                            Log.e("Firebase", "Error deleting service: " + task.getException());
+                            Log.e("Firebase", "Error deleting room: " + task.getException());
                         }
                     }
                 });
@@ -68,13 +82,14 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the current room data from the adapter position
-                Promotion room = promotionList.get(holder.getAdapterPosition());
+                Promotion promotion = promotionList.get(holder.getAdapterPosition());
                 Intent intent = new Intent(context, EditPromotionActivity.class);
                 context.startActivity(intent);
             }
         });
+
     }
+
 
     @Override
     public int getItemCount() {
@@ -82,14 +97,16 @@ public class PromoAdapter extends RecyclerView.Adapter<PromoAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView promotionName;
+        TextView
+                roomName;
+
         Button deleteButton,editButton;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            promotionName = itemView.findViewById(R.id.promotion_name);
+            roomName = itemView.findViewById(R.id.promotion_name);
             deleteButton = itemView.findViewById(R.id.delete);
             editButton =itemView.findViewById(R.id.edit);
         }
     }
 }
-
